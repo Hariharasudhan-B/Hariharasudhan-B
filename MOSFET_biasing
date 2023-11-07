@@ -1,0 +1,53 @@
+def Fixed_Bias_configuration(Vdd,Id,Rs):
+  Vds=Vdd-(Id*Rs)
+  return Vds
+
+def Voltage_Divider_Bias_Configuration(Vdd,R1,R2,Is,Id,Rs,Rd):
+  Vg=(R2*Vdd)/(R1+R2)
+  Vgs=Vg-(Is*Rs)
+  Vds=Vdd-Id*(Rd+Rs)
+  return Vgs,Vds
+
+while True:
+  print("Choose MOSFET Biasing Configuration:")
+  print("1.Fixed Bias Configuration")
+  print("2.Voltage Divider Bias Configuration")
+  print("3.Exit")
+
+  choice = input("Enter the Configuration Number:")
+
+  if choice == "3.Exit":
+    break
+
+    Vdd=float(input("Enter Vdd="))
+    Id=float(input("Enter Id="))
+    Rs=float(input("Enter Rs="))
+    R1=float(input("Enter R1="))
+    R2=float(input("Enter R2="))
+    Is=float(input("Enter Is="))
+    Rs=float(input("Enter Rs="))
+    Rd=float(input("Enter Rd="))
+
+  if choice == "1.Fixed Bias Configuration":
+    Vdd=float(input("Enter Vdd="))
+    Id=float(input("Enter Id="))
+    Rs=float(input("Enter Rs="))
+    V6ds = Fixed_Bias_configuration(Vdd,Id,Rs)
+    print(f"Voltage across Drain and Source(Vds) : {Vds} V")
+
+  elif choice == "2.Voltage Divider Bias Configuration":
+    Vdd=float(input("Enter Vdd="))
+    R1=float(input("Enter R1="))
+    R2=float(input("Enter R2="))
+    Is=float(input("Enter Is="))
+    Id=float(input("Enter Id="))
+    Rs=float(input("Enter Rs="))
+    Rd=float(input("Enter Rd="))
+    Vgs,Vds = Voltage_Divider_Bias_Configuration(Vdd,R1,R2,Is,Id,Rs,Rd)
+    print(f"Voltage across Gate and Source(Vgs) : {Vgs}V")
+    print(f"Voltage across Drain and Source(Vds) : {Vds}V")
+  else:
+    Print("Invalid choice.Please enter the valid Choice.")
+    continue
+
+    print(f"Voltage across Drain and Source(Vds) : {Vds}V")
