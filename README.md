@@ -30,4 +30,14 @@ This Python program allows you to calculate and analyze various BJT (Bipolar Jun
 ### 3. Voltage Divider Bias Configuration
    - This configuration uses voltage dividers (R1 and R2) to set the base voltage (Vb).
    - Ie = Ve / Re
-   - Ib = Ie
+   - Ib = Ie / (Beta + 1)
+   - Ic = Beta * Ib
+   - Vce = Vcc - Ic * (Rc + Re)
+
+### 4. Collector Feedback Bias Configuration
+   - This configuration uses a feedback resistor (Rf) to control the base current (Ib).
+   - Ic = Beta * Ib
+   - Vce = Vcc - Ic * (Rc + Re)
+
+
+[B HARIHARASUDHAN]
